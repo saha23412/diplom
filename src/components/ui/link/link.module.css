@@ -1,0 +1,12 @@
+.link {
+  color: #2311a5;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: all ease 0.4s;
+  font-size: 14px;
+}
+.link:hover {
+  transition: all ease 0.4s;
+  color: #341ee1;
+
+}
