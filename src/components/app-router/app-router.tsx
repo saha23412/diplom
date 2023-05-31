@@ -1,13 +1,38 @@
 import { Routes, Route } from 'react-router-dom';
-import { AppRouterEntity } from './app-router-types';
+import { AppRouterProps } from './app-router-types';
 
-const AppRouter: React.FC<AppRouterEntity> = ({ router }) => {
-  return (
-    <Routes>
-      {router.map((route) => (
-        <Route key={route.path} path={route.path} element={<route.element />} />
-      ))}
-    </Routes>
-  );
+const AppRouter: React.FC<AppRouterProps> = ({
+  routerPrivate,
+  routerPublick,
+  auth,
+}) => {
+  console.log(auth);
+  if (auth) {
+    return (
+      <Routes>
+        {routerPrivate.map((router) => (
+          <Route
+            key={router.path}
+            path={router.path}
+            element={<router.element />}
+          />
+        ))}
+      </Routes>
+    );
+  }
+  if (!auth) {
+    return (
+      <Routes>
+        {routerPublick.map((router) => (
+          <Route
+            key={router.path}
+            path={router.path}
+            element={<router.element />}
+          />
+        ))}
+      </Routes>
+    );
+  }
+  return null;
 };
 export default AppRouter;

@@ -1,5 +1,5 @@
 import { ButtonProps } from './button-types';
-import style from './button.module.css'
+import style from './button.module.css';
 
 const Button: React.FC<ButtonProps> = ({
   onClick,
@@ -8,7 +8,12 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
 }) => {
   return (
-    <button className={style.button}  type={type} onClick={onClick} disabled={disabled}>
+    <button
+      className={style.button}
+      type={type === 'submit' ? 'submit' : 'button'}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

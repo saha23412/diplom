@@ -7,7 +7,13 @@ const Input: React.FC<InputProps> = ({ name, label, ...rest }) => {
       <label className={style.label} htmlFor={name}>
         {label}
       </label>
-      <input className={style.input} id={name} name={name} {...rest} />
+      <input
+        className={style.input}
+        id={name}
+        name={name}
+        {...rest}
+        type={`${name === 'password' ? 'password' : 'text'}`}
+      />
     </>
   );
 };

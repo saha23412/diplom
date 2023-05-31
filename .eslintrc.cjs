@@ -1,20 +1,43 @@
 module.exports = {
-  env: { browser: true, es2020: true },
+  env: {
+    browser: true,
+    es2021: true,
+  },
   extends: [
-    'eslint:recommended',
+    'airbnb',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
   ],
+  overrides: [],
   parser: '@typescript-eslint/parser',
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  plugins: ['react-refresh'],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
+  },
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    'at-rule-no-unknown': [
-      true,
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    'react/react-in-jsx-scope': 0,
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'react/prop-types': 0,
+    'react/function-component-definition': [
+      2,
       {
-        ignoreAtRules: ['import-normalise'],
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
       },
     ],
-    'react-refresh/only-export-components': 'warn',
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
+    ],
   },
 };

@@ -1,8 +1,6 @@
-import { ButtonType } from '../../../global-types/button-types';
-
-export type ButtonProps = {
+export interface ButtonProps {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children?: React.ReactNode;
-  type: ButtonType;
+  type: JSX.IntrinsicElements['button']['type'];
   disabled?: boolean;
-};
+}

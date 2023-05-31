@@ -1,5 +1,5 @@
 import { ButtonType } from '../../global-types/button-types';
-import { RouteNames } from '../../router/router';
+import RouteNames from '../../global-types/routes-name';
 
 interface FormInput {
   name: string;
