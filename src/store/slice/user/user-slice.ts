@@ -6,8 +6,7 @@ import getUserByIdApi from '../../../api/rest/user/get-user-id';
 
 interface UserState {
   user_id: string;
-  auth: boolean;
-  currentUser: Omit<User, 'user_id'> | null;
+  currentUser: User | null;
   users: null | User[];
   error: string;
   loading: boolean;
@@ -38,7 +37,7 @@ export const getUsers = createAsyncThunk<
 });
 
 export const getUserById = createAsyncThunk<
-  User,
+  User[],
   string,
   { rejectValue: string }
 >('user/getUserById', async function (id, { rejectWithValue }) {
@@ -46,12 +45,11 @@ export const getUserById = createAsyncThunk<
   if (response.statusText !== 'OK') {
     return rejectWithValue('Error');
   }
-  return response.data as User;
+  return response.data as User[];
 });
 
 const initialState: UserState = {
   user_id: '',
-  auth: false,
   currentUser: null,
   users: null,
   error: '',
@@ -62,14 +60,11 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    authUser(state) {
-      state.auth = true;
-    },
-    exitAuthUser(state) {
-      state.auth = false;
-    },
     addUserId(state, action: PayloadAction<string>) {
       state.user_id = action.payload;
+    },
+    resetCurrentUser(state) {
+      state.currentUser = null;
     },
   },
   extraReducers(builder) {
@@ -94,14 +89,18 @@ export const userSlice = createSlice({
         state.loading = false;
         state.error = 'Ошибка сервера, повторите попытку';
       })
-      .addCase(getUserById.fulfilled, (state, action: PayloadAction<User>) => {
-        state.loading = false;
-        state.currentUser = action.payload;
-      });
+      .addCase(
+        getUserById.fulfilled,
+        (state, action: PayloadAction<User[]>) => {
+          state.loading = false;
+          const user = action.payload[0];
+          state.currentUser = user;
+        }
+      );
   },
 });
 
 export const {
   reducer: userReducer,
-  actions: { authUser, exitAuthUser, addUserId },
+  actions: { addUserId, resetCurrentUser },
 } = userSlice;

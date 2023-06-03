@@ -29,7 +29,6 @@ export const notificationSignup =
   'Проверьте все данные, пароль должен быть длинее 6 символов, фамилия и имя написаны на кириллице';
 // Navigation element
 export const NavigationItem = [
-  { title: 'Профиль', path: RouteNames.PROFILE },
   { title: 'Мой инвентарь', path: RouteNames.PRIVATE_STORAGE },
   { title: 'Весь инвентарь', path: RouteNames.STORAGE },
   { title: 'Настройки', path: RouteNames.SETTINGS },

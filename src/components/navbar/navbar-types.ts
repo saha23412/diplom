@@ -1,8 +1,6 @@
-import RouteNames from '../../global-types/routes-name';
-
 interface NavigationELement {
   title: string;
-  path: RouteNames;
+  path: string;
 }
 export interface NavbarProps {
   navigationItem: NavigationELement[];

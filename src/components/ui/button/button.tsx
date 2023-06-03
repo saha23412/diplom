@@ -6,10 +6,11 @@ const Button: React.FC<ButtonProps> = ({
   type,
   children,
   disabled,
+  className,
 }) => {
   return (
     <button
-      className={style.button}
+      className={`${style.button} ${className}`}
       type={type === 'submit' ? 'submit' : 'button'}
       onClick={onClick}
       disabled={disabled}

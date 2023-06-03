@@ -2,10 +2,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  border-radius: 10px;
   padding: 25px;
-  background: linear-gradient(#6859fd, #4f88fb ,#6956FD) fixed;
-  box-shadow: 0px 5px 15px rgba(104, 87, 253);
 }
 .main-title {
   font-size: 25px;

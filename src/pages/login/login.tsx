@@ -10,20 +10,17 @@ import {
 import ContainerCenter from '../../containers/container-center/container-center';
 import { validationCheck } from '../../utils/validation';
 import { LoginRulesForm } from '../../validation/rules';
-import { checkLogin } from '../../utils/check-login';
-import {
-  addUserId,
-  authUser,
-  getUsers,
-} from '../../store/slice/user/user-slice';
+import checkLogin from '../../utils/check-login';
+import { getUsers } from '../../store/slice/user/user-slice';
 import { useAppDispatch } from '../../hooks/hook-store';
 import Form from '../../components/form/form';
 import Notification from '../../components/notification/notification-card';
 import RouteNames from '../../global-types/routes-name';
 import { AuthContext } from '../../contexts/auth-context/autn-context';
+import setCookie from '../../utils/cookie/set-cookie';
 
 const Login: React.FC = () => {
-  const { auth, updateStorageAuth } = useContext(AuthContext);
+  const { updateStorageAuth } = useContext(AuthContext);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [NotificationOpenNegative, setNotificationOpenNegative] =
@@ -33,13 +30,11 @@ const Login: React.FC = () => {
     password: '',
   });
 
-  // Записываем данные input в объект data
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
 
-  // Делаем submit формы
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (validationCheck(user, LoginRulesForm)) {
@@ -50,10 +45,13 @@ const Login: React.FC = () => {
         : null;
       if (resultCheck && Array.isArray(response.payload)) {
         const userCheck = checkLogin(user, response.payload);
-        if (userCheck?.user_id) dispatch(addUserId(userCheck.user_id));
+        if (userCheck?.user_id) {
+          setCookie('id', userCheck.user_id, {
+            path: '/',
+          });
+        }
         updateStorageAuth(true);
         setNotificationOpenNegative(false);
-        dispatch(authUser());
         navigate(RouteNames.HOME);
       } else {
         setNotificationOpenNegative(true);

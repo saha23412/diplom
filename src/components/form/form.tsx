@@ -3,6 +3,7 @@ import Input from '../ui/input/input';
 import style from './form.module.css';
 import Button from '../ui/button/button';
 import LinkCustom from '../ui/link/link';
+import ContainerBorder from '../../containers/container-border/container-border';
 
 const Form: React.FC<FormProps> = ({
   formTitle,

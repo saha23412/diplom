@@ -1,6 +1,6 @@
 export type Storage = {
   id: string;
-  equipment: [];
+  description: string;
   title: string;
   amount: number;
 };
