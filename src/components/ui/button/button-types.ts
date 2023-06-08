@@ -3,5 +3,5 @@ export interface ButtonProps {
   children?: React.ReactNode;
   type: JSX.IntrinsicElements['button']['type'];
   disabled?: boolean;
-  className: string;
+  className?: string;
 }

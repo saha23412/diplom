@@ -4,13 +4,12 @@ import {
   getUserById,
   resetCurrentUser,
 } from '../../store/slice/user/user-slice';
-import { useAppDispatch, useAppSelector } from '../../hooks/hook-store';
+import { useAppDispatch, useAppSelector } from '../../store/hook-store';
 import ProfileInfo from '../../components/profile-info/profile-info';
 import ContainerWidth from '../../containers/container-width/container-width';
 import MyLoader from '../../components/loader/loader';
 import deleteCookie from '../../utils/cookie/delete-cookie';
 import { AuthContext } from '../../contexts/auth-context/autn-context';
-import style from './profile.module.css';
 import RouteNames from '../../global-types/routes-name';
 
 const Profile: React.FC = () => {
@@ -33,27 +32,21 @@ const Profile: React.FC = () => {
   }, [dispatch, id, selectRedux.users]);
 
   if (!selectRedux.users && selectRedux.loading) {
-    return (
-      <div className={style.profile}>
-        <MyLoader />
-      </div>
-    );
+    return <MyLoader />;
   }
   if (selectRedux.users) {
     return (
-      <div className={style.profile}>
-        <ContainerWidth>
-          <ProfileInfo
-            name={selectRedux.users.name}
-            last_name={selectRedux.users.last_name}
-            email={selectRedux.users.email}
-            exitClick={exitClick}
-          />
-        </ContainerWidth>
-      </div>
+      <ContainerWidth>
+        <ProfileInfo
+          name={selectRedux.users.name}
+          last_name={selectRedux.users.last_name}
+          email={selectRedux.users.email}
+          exitClick={exitClick}
+        />
+      </ContainerWidth>
     );
   }
-  return <div>Пользователя нет</div>;
+  return null;
 };
 
 export default Profile;

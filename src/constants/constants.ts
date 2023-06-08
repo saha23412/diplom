@@ -29,7 +29,13 @@ export const notificationSignup =
   'Проверьте все данные, пароль должен быть длинее 6 символов, фамилия и имя написаны на кириллице';
 // Navigation element
 export const NavigationItem = [
-  { title: 'Мой инвентарь', path: RouteNames.PRIVATE_STORAGE },
-  { title: 'Весь инвентарь', path: RouteNames.STORAGE },
+  { title: 'Инвентарь', path: RouteNames.STORAGE },
   { title: 'Настройки', path: RouteNames.SETTINGS },
+];
+// User Panel form add Storage
+export const inputsFormUserPanel = [
+  { name: 'title', label: 'Название' },
+  { name: 'amount', label: 'Количество' },
+  { name: 'description', label: 'Описание' },
+  { name: 'inventory_number', label: 'Номер инвентаря' },
 ];

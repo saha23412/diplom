@@ -1,0 +1,16 @@
+.storage {
+  width: 100%;
+  height: 100%;
+}
+.storage-inventory {
+  padding: 50px 55px;
+}
+.inventory {
+  display: grid;
+  align-items: center;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 15px;
+}

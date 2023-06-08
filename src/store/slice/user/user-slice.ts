@@ -5,7 +5,6 @@ import createUserApi from '../../../api/rest/user/create-user';
 import getUserByIdApi from '../../../api/rest/user/get-user-id';
 
 interface UserState {
-  user_id: string;
   currentUser: User | null;
   users: null | User[];
   error: string;
@@ -16,11 +15,9 @@ export const createUser = createAsyncThunk<
   boolean,
   User,
   { rejectValue: string }
->('user/createUser', async function (user: User, { rejectWithValue }) {
+>('user/createUser', async (user: User, { rejectWithValue }) => {
   const response = await createUserApi(user);
-  if (response.statusText !== 'OK') {
-    return rejectWithValue('Error');
-  }
+  console.log(response);
   return true;
 });
 
@@ -28,7 +25,7 @@ export const getUsers = createAsyncThunk<
   User[],
   undefined,
   { rejectValue: string }
->('user/getUser', async function (_, { rejectWithValue }) {
+>('user/getUser', async (_, { rejectWithValue }) => {
   const response = await getUsersApi();
   if (response.statusText !== 'OK') {
     return rejectWithValue('Error');
@@ -40,7 +37,7 @@ export const getUserById = createAsyncThunk<
   User[],
   string,
   { rejectValue: string }
->('user/getUserById', async function (id, { rejectWithValue }) {
+>('user/getUserById', async (id, { rejectWithValue }) => {
   const response = await getUserByIdApi(id);
   if (response.statusText !== 'OK') {
     return rejectWithValue('Error');
@@ -49,7 +46,6 @@ export const getUserById = createAsyncThunk<
 });
 
 const initialState: UserState = {
-  user_id: '',
   currentUser: null,
   users: null,
   error: '',
@@ -60,9 +56,6 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    addUserId(state, action: PayloadAction<string>) {
-      state.user_id = action.payload;
-    },
     resetCurrentUser(state) {
       state.currentUser = null;
     },
@@ -102,5 +95,5 @@ export const userSlice = createSlice({
 
 export const {
   reducer: userReducer,
-  actions: { addUserId, resetCurrentUser },
+  actions: { resetCurrentUser },
 } = userSlice;

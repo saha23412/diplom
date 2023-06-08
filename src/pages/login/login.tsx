@@ -12,7 +12,7 @@ import { validationCheck } from '../../utils/validation';
 import { LoginRulesForm } from '../../validation/rules';
 import checkLogin from '../../utils/check-login';
 import { getUsers } from '../../store/slice/user/user-slice';
-import { useAppDispatch } from '../../hooks/hook-store';
+import { useAppDispatch } from '../../store/hook-store';
 import Form from '../../components/form/form';
 import Notification from '../../components/notification/notification-card';
 import RouteNames from '../../global-types/routes-name';

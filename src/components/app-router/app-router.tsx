@@ -6,7 +6,6 @@ const AppRouter: React.FC<AppRouterProps> = ({
   routerPublick,
   auth,
 }) => {
-  console.log(auth);
   if (auth) {
     return (
       <Routes>

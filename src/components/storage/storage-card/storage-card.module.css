@@ -1,0 +1,24 @@
+.storage-card {
+  width: 100%;
+  padding: 25px;
+  box-shadow: 10px 15px 25px rgba(104, 87, 253);
+  background-color: #4e54c8;
+  border-radius: 10px;
+}
+.title-card {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.card-border {
+  box-shadow: 1px 0px 9px 8px rgb(113, 243, 99);
+}
+.storage-card div {
+  font-size: 18px;
+  color: white;
+}
+.storage-card span {
+  font-size: 20px;
+  font-weight: 700;
+}

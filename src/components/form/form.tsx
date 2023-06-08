@@ -3,7 +3,6 @@ import Input from '../ui/input/input';
 import style from './form.module.css';
 import Button from '../ui/button/button';
 import LinkCustom from '../ui/link/link';
-import ContainerBorder from '../../containers/container-border/container-border';
 
 const Form: React.FC<FormProps> = ({
   formTitle,
@@ -16,9 +15,10 @@ const Form: React.FC<FormProps> = ({
   titleButton,
   linkPath,
   linkTitle,
+  className,
 }) => {
   return (
-    <form className={style.form} onSubmit={handleSubmit}>
+    <form className={`${style.form} ${className}`} onSubmit={handleSubmit}>
       <p className={style['form-title']}>{formTitle}</p>
       <div className={style['form-inputs']}>
         {formInput.map((input) => (

@@ -1,0 +1,24 @@
+.inventory-storage {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.inventory-grid {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 15px;
+}
+.inventory-functional {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 10px;
+}
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 55px;
+}
+.link-home {
+  color: white;
+}

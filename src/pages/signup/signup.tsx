@@ -5,7 +5,7 @@ import Notification from '../../components/notification/notification-card';
 import ContainerCenter from '../../containers/container-center/container-center';
 import { SignupRulesForm } from '../../validation/rules';
 import { createUser, getUsers } from '../../store/slice/user/user-slice';
-import { useAppDispatch } from '../../hooks/hook-store';
+import { useAppDispatch } from '../../store/hook-store';
 import {
   NotificationStatus,
   formTitleSignup,

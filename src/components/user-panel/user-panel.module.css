@@ -1,0 +1,27 @@
+.user-panel {
+  padding: 50px 55px;
+}
+.add-inventory {
+  padding: 25px;
+  width: 100%;
+  height: 100%;
+}
+.close-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.close-form h2{
+  font-size: 16px;
+  font-weight: 500;
+}
+.form-button{
+  width: 50%;
+}
+.add-inventory-form {
+  padding: 15px;
+  width: 100%;
+  min-height: 80%;
+  background-color: white;
+}
