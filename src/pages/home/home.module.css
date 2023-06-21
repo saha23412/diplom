@@ -11,5 +11,10 @@ img {
   gap: 10px;
 }
 .home-wrapper-navbar {
-  margin-bottom: 40px;
+  margin-top: 40px;
+}
+.button-wrapper {
+  display: flex;
+  max-width: calc(40%);
+  margin: 25px auto;
 }

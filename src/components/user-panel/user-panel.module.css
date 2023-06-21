@@ -12,11 +12,11 @@
   align-items: center;
   margin-bottom: 15px;
 }
-.close-form h2{
+.close-form h2 {
   font-size: 16px;
   font-weight: 500;
 }
-.form-button{
+.form-button {
   width: 50%;
 }
 .add-inventory-form {
@@ -24,4 +24,10 @@
   width: 100%;
   min-height: 80%;
   background-color: white;
+}
+.select {
+  margin-bottom: 15px;
+}
+.select p {
+  color: black;
 }

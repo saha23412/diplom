@@ -17,3 +17,11 @@ export const SignupRulesForm = {
   email,
   password,
 };
+
+export const UserPanelRulesForm = {
+  title: name,
+  amount: /[0-9]/,
+  description: name,
+  inventory_number: /[0-9]/,
+  metro: name,
+};

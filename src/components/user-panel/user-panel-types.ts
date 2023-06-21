@@ -9,6 +9,9 @@ export interface UserPanelProps {
     [key: string]: string;
   };
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   typeButton: ButtonType;
+  isOpen: boolean;
+  onClickCLose: () => void;
 }

@@ -5,4 +5,5 @@ export interface StorageCardProps {
   amount: string;
   inventory_number: string;
   user_id: string;
+  metro: string;
 }

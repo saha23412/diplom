@@ -11,6 +11,7 @@ const StorageCard: React.FC<StorageCardProps> = ({
   amount,
   description,
   inventory_number,
+  metro,
   id,
   user_id,
 }) => {
@@ -52,6 +53,11 @@ const StorageCard: React.FC<StorageCardProps> = ({
         <div>
           <p>
             <span>Номер:</span> {inventory_number}
+          </p>
+        </div>
+        <div>
+          <p>
+            <span>Метро:</span> {metro}
           </p>
         </div>
         {idCookie === user_id ? (

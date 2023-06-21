@@ -18,6 +18,7 @@ const Storage: React.FC<StorageProps> = ({ storage }) => {
               amount={inventory.amount}
               inventory_number={inventory.inventory_number}
               user_id={inventory.user_id}
+              metro={inventory.metro}
             />
           ))}
         </ul>

@@ -5,7 +5,7 @@
 .inventory-grid {
   margin-top: 15px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr;
   grid-column-gap: 15px;
 }
 .inventory-functional {

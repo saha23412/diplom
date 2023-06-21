@@ -5,14 +5,20 @@ import Button from '../ui/button/button';
 import Form from '../form/form';
 import { UserPanelProps } from './user-panel-types';
 import style from './user-panel.module.css';
+import Select from '../ui/select/select';
+import { selectOptions } from '../../constants/constants';
+import Notification from '../notification/notification-card';
 
 const UserPanel: React.FC<UserPanelProps> = ({
   data,
+  onChangeSelect,
   formInput,
   onChange,
   handleSubmit,
   typeButton,
   titleButton,
+  onClickCLose,
+  isOpen,
 }) => {
   const [opened, setOpened] = useState(false);
   return (
@@ -24,17 +30,39 @@ const UserPanel: React.FC<UserPanelProps> = ({
       >
         Добавить инвентарь
       </Button>
-      <ComplexAnimatedModal opened={opened} onClose={() => setOpened(false)}>
+      <ComplexAnimatedModal
+        opened={opened}
+        onClose={() => {
+          onClickCLose();
+          setOpened(false);
+        }}
+      >
         <div className={style['add-inventory']}>
+          <Notification
+            isOpen={isOpen}
+            onClickCLose={onClickCLose}
+            textNotification="Ошибка"
+          />
           <div className={style['close-form']}>
             <h2>Заполните форму</h2>
             <Button
               className={style['form-button']}
               type="button"
-              onClick={() => setOpened(false)}
+              onClick={() => {
+                onClickCLose();
+                setOpened(false);
+              }}
             >
               Закрыть форму
             </Button>
+          </div>
+          <div className={style.select}>
+            <Select
+              onChange={onChangeSelect}
+              value={data.metro}
+              options={selectOptions}
+              defaultValue="Метро"
+            />
           </div>
           <Form
             className={style['add-inventory-form']}

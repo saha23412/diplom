@@ -1,10 +1,5 @@
 import RouteNames from '../global-types/routes-name';
 
-// Notification
-export enum NotificationStatus {
-  POSITIVE = 'positive',
-  NEGATIVE = 'negative',
-}
 // Login
 export const inputsLogin = [
   { name: 'email', label: 'Почта' },
@@ -38,4 +33,9 @@ export const inputsFormUserPanel = [
   { name: 'amount', label: 'Количество' },
   { name: 'description', label: 'Описание' },
   { name: 'inventory_number', label: 'Номер инвентаря' },
+];
+
+export const selectOptions = [
+  { name: 'Каширская', value: 'Каширская' },
+  { name: 'Коломенская', value: 'Коломенская' },
 ];

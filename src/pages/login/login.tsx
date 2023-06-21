@@ -1,14 +1,13 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  NotificationStatus,
   formTitleLogin,
   inputsLogin,
   notificationLogin,
   pathTitleLogin,
 } from '../../constants/constants';
 import ContainerCenter from '../../containers/container-center/container-center';
-import { validationCheck } from '../../utils/validation';
+import validationCheck from '../../utils/validation';
 import { LoginRulesForm } from '../../validation/rules';
 import checkLogin from '../../utils/check-login';
 import { getUsers } from '../../store/slice/user/user-slice';
@@ -65,7 +64,6 @@ const Login: React.FC = () => {
   return (
     <ContainerCenter>
       <Notification
-        statusNotification={NotificationStatus.NEGATIVE}
         textNotification={notificationLogin}
         isOpen={NotificationOpenNegative}
         onClickCLose={setNotificationOpenNegative}

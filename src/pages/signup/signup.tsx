@@ -7,16 +7,13 @@ import { SignupRulesForm } from '../../validation/rules';
 import { createUser, getUsers } from '../../store/slice/user/user-slice';
 import { useAppDispatch } from '../../store/hook-store';
 import {
-  NotificationStatus,
   formTitleSignup,
   inputsSignup,
   notificationSignup,
   pathTitleSignup,
 } from '../../constants/constants';
-
-import { checkUser } from '../../utils/check-user';
-
-import { validationCheck } from '../../utils/validation';
+import checkUser from '../../utils/check-user';
+import validationCheck from '../../utils/validation';
 import RouteNames from '../../global-types/routes-name';
 
 const Signup: React.FC = () => {
@@ -71,13 +68,11 @@ const Signup: React.FC = () => {
   return (
     <ContainerCenter>
       <Notification
-        statusNotification={NotificationStatus.NEGATIVE}
         textNotification={notificationSignup}
         isOpen={NotificationOpenValidation}
         onClickCLose={setNotificationOpenValidation}
       />
       <Notification
-        statusNotification={NotificationStatus.NEGATIVE}
         textNotification="Пользователь уже существует"
         isOpen={NotificationOpenCheckUser}
         onClickCLose={setNotificationOpenCheckUser}

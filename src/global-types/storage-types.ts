@@ -5,4 +5,5 @@ export type Storage = {
   amount: string;
   inventory_number: string;
   user_id: string;
+  metro: string;
 };
